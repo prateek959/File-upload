@@ -30,9 +30,10 @@ app.get('/', (req, res) => {
 
 app.post('/upload',upload.single('image') ,(req, res) => {
     const basepath = `${req.protocol}://${req.get('host')}/public/images/`
-    console.log(req.file);
+    // console.log(req.file);
     const url = `${basepath}/${req.file.filename}`;
-    res.json({url});
+    console.log(url);
+    res.status(201).json({url});
 });
 
 
